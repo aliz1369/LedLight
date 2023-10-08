@@ -57,6 +57,7 @@ class MainActivity : ComponentActivity() {
         }
         setContent {
             LedLightTheme {
+
                 val navController = rememberNavController()
                 SetupNavGraph(startDestination = Screen.Home.route, navController = navController)
             }

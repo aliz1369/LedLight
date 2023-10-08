@@ -24,7 +24,9 @@ import com.example.ledlight.presentation.screens.home.HomeUiState
 fun DeviceScreen(
     state: HomeUiState,
     onStartScan: () -> Unit,
-    onStopScan: () -> Unit
+    onStopScan: () -> Unit,
+    onDeviceClick: (BluetoothDevice) -> Unit,
+    onStartServer: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -33,7 +35,7 @@ fun DeviceScreen(
         BluetoothDeviceList(
             pairedDevices = state.pairedDevices,
             scannedDevices = state.scannedDevices,
-            onClick = {},
+            onClick = onDeviceClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(1f)
@@ -47,6 +49,9 @@ fun DeviceScreen(
             }
             Button(onClick = onStopScan) {
                 Text(text = "Stop scan")
+            }
+            Button(onClick = onStartServer) {
+                Text(text = "Start Server")
             }
         }
     }
