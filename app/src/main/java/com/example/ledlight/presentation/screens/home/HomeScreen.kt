@@ -8,8 +8,12 @@ import androidx.compose.runtime.Composable
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen() {
-    Scaffold(content ={
-        HomeContent()
-    } )
+fun HomeScreen(
+    viewModel: HomeViewModel,
+    state: HomeUiState
+) {
+
+    Scaffold(content = {
+        HomeContent(state = state, viewModel = viewModel)
+    })
 }
